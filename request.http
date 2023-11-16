@@ -1,0 +1,76 @@
+POST http://127.0.0.1:5000/auth
+content-type: application/json
+
+{
+    "username": "alejandroAdmin",
+    "password": "Admin123"
+}
+
+### get pacientes
+GET http://127.0.0.1:5000/pacientes
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+
+
+### get pacientes
+POST http://127.0.0.1:5000/pacientes/guardar
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+
+{
+    "nombre": "Juan Pérez",
+    "numero_registro": "12345",
+    "gen_id": 1,
+    "edad": 30,
+    "direccion": "Calle Principal",
+    "dep_id": 1,
+    "mun_id": 1,
+    "estado_civil": 1,
+    "telefono": "123456789",
+    "fecha_nacimiento": "1990-01-01",
+    "numero_dui": "",
+    "nombre_madre": "",
+    "nombre_padre": "",
+    "responsable": "",
+    "tel_contacto": "",
+    "id_usuario_crea": 1
+}
+
+### get pacientes
+POST http://127.0.0.1:5000/pacientes/buscar
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+
+{
+    "busqueda": "Juan Manuel Perez"
+}
+
+### get pacientes
+PUT http://127.0.0.1:5000/pacientes/editar
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+
+{
+    "pacienteId": 16792,
+    "nombre": "Juan Manuel Perez",
+    "numero_registro": "161029022",
+    "gen_id": 1,
+    "edad": 34,
+    "direccion": "Calle Principal Barrio el Centro",
+    "dep_id": 1,
+    "mun_id": 1,
+    "estado_civil": 1,
+    "telefono": "7890-3033",
+    "fecha_nacimiento": "1988-01-01",
+    "numero_dui": "04221133-2",
+    "nombre_madre": "",
+    "nombre_padre": "",
+    "responsable": "",
+    "tel_contacto": "",
+    "id_usuario_modifica": 1
+}
+
+### borrar pacientes
+DELETE  http://127.0.0.1:5000/pacientes/borrar/16792
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
