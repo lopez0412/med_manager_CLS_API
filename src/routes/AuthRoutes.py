@@ -2,13 +2,10 @@ from flask import Blueprint, request, jsonify
 
 import traceback
 
-# Logger
+
 from src.utils.Logger import Logger
-# Models
 from src.models.userModel import User
-# Security
 from src.utils.Security import Security
-# Services
 from src.services.AuthService import AuthService
 
 main = Blueprint('auth_blueprint', __name__)

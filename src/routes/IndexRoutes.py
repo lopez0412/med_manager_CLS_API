@@ -2,7 +2,6 @@ from flask import Blueprint, jsonify, request
 
 import traceback
 
-# Logger
 from src.utils.Logger import Logger
 
 main = Blueprint('index_blueprint', __name__)

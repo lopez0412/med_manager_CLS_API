@@ -2,11 +2,8 @@ from flask import Blueprint, request, jsonify
 
 import traceback
 
-# Logger
 from src.utils.Logger import Logger
-# Security
 from src.utils.Security import Security
-# Services
 from src.services.PacientesService import PacienteService
 
 main = Blueprint('pacientes_blueprint', __name__)

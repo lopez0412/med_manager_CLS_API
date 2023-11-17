@@ -1,10 +1,7 @@
 import traceback
 
-# Database
 from src.database.db_mysql import get_connection
-# Logger
 from src.utils.Logger import Logger
-# Models
 from src.models.pacienteModel import Paciente
 
 
