@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-
+from flask_cors import CORS
 import traceback
 
 
@@ -9,7 +9,7 @@ from src.utils.Security import Security
 from src.services.AuthService import AuthService
 
 main = Blueprint('auth_blueprint', __name__)
-
+CORS(main)
 
 @main.route('/', methods=['POST'])
 def login():
