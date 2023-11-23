@@ -1,1 +1,15 @@
 2023-11-20 19:49:20 | INFO | GET /
+2023-11-21 18:38:44 | ERROR | 'username'
+2023-11-21 18:38:44 | ERROR | Traceback (most recent call last):
+  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\AuthRoutes.py", line 17, in login
+    username = request.json['username']
+               ~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+
+2023-11-21 18:39:02 | ERROR | 'username'
+2023-11-21 18:39:02 | ERROR | Traceback (most recent call last):
+  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\AuthRoutes.py", line 17, in login
+    username = request.json['username']
+               ~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'username'
+

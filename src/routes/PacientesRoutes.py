@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-
+from flask_cors import CORS
 import traceback
 
 from src.utils.Logger import Logger
@@ -7,7 +7,7 @@ from src.utils.Security import Security
 from src.services.PacientesService import PacienteService
 
 main = Blueprint('pacientes_blueprint', __name__)
-
+CORS(main)
 
 @main.route('/')
 def get_pacientes():
@@ -28,7 +28,7 @@ def get_pacientes():
         response = jsonify({'message': 'Unauthorized'})
         return response, 401
 
-
+#TODO: Cambia los nombres de los campos para evitar un missunderstand
 @main.route('/guardar', methods=['POST'])
 def route_guardar_paciente():
     
@@ -53,7 +53,7 @@ def route_guardar_paciente():
                 nombre_padre=request.json['nombre_padre'],
                 responsable=request.json['responsable'],
                 tel_contacto=request.json['tel_contacto'],
-                id_usuario_crea=request.json['id_usuario_crea']
+                id_usuario=request.json['id_usuario']
             )
 
             return jsonify(resultado)
@@ -94,6 +94,7 @@ def buscarPaciente():
 
 # ... Ruta para editar al usuario por id ...
 
+#TODO: Cambia los nombres de los campos para evitar un missunderstand
 @main.route('/editar', methods=['PUT'])
 def route_editar_paciente():
     
@@ -119,7 +120,7 @@ def route_editar_paciente():
                 nombre_padre=request.json['nombre_padre'],
                 responsable=request.json['responsable'],
                 tel_contacto=request.json['tel_contacto'],
-                id_usuario_modifica=request.json['id_usuario_modifica']
+                id_usuario=request.json['id_usuario']
             )
 
             return jsonify(resultado)

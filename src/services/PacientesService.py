@@ -48,7 +48,7 @@ class PacienteService():
     # Guardar un Paciente nuevo.
     def guardar_paciente(nombre, numero_registro, gen_id, edad, direccion, dep_id, mun_id, estado_civil,
                      telefono, fecha_nacimiento, numero_dui, nombre_madre, nombre_padre, responsable,
-                     tel_contacto, id_usuario_crea):
+                     tel_contacto, id_usuario):
         try:
             #verifica valores y asigna los nulos si es necesario
             numero_dui = numero_dui if numero_dui is not None else None
@@ -62,12 +62,12 @@ class PacienteService():
                 cursor.callproc('sp_addPaciente', (
                     nombre, numero_registro, gen_id, edad, direccion, dep_id, mun_id, estado_civil,
                     telefono, fecha_nacimiento, numero_dui, nombre_madre, nombre_padre, responsable,
-                    tel_contacto, id_usuario_crea
+                    tel_contacto, id_usuario
                 ))
 
             connection.commit()
 
-            return {'mensaje': "Paciente agregado correctamente"}
+            return {'tipo': 'success','mensaje': "Paciente agregado correctamente"}
         
         except Exception as e:
             Logger.add_to_log("error", str(e))
@@ -80,7 +80,7 @@ class PacienteService():
     # editar pacientes
     def editar_paciente(pacienteId, nombre, numero_registro, gen_id, edad, direccion, dep_id, mun_id, estado_civil,
                      telefono, fecha_nacimiento, numero_dui, nombre_madre, nombre_padre, responsable,
-                     tel_contacto, id_usuario_modifica):
+                     tel_contacto, id_usuario):
         try:
             connection =  get_connection()
 
@@ -88,11 +88,11 @@ class PacienteService():
                 cursor.callproc('sp_editarPaciente', (
                     pacienteId, nombre, numero_registro, gen_id, edad, direccion, dep_id, mun_id, estado_civil,
                     telefono, fecha_nacimiento, numero_dui, nombre_madre, nombre_padre, responsable,
-                    tel_contacto, id_usuario_modifica
+                    tel_contacto, id_usuario
                 ))
 
             connection.commit()
-            return {'mensaje': "Paciente editado correctamente"}
+            return {'tipo': 'success','mensaje': "Paciente editado correctamente"}
         except Exception as e:
             Logger.add_to_log("error", str(e))
             return {'error': str(e)}
@@ -111,7 +111,7 @@ class PacienteService():
                 cursor.callproc('sp_borrarPaciente', (id_paciente,))
 
             connection.commit()
-            return {'mensaje': "Paciente borrado correctamente"}
+            return {'tipo': 'success','mensaje': "Paciente borrado correctamente"}
         except Exception as ex:
             Logger.add_to_log("error", str(ex))
             Logger.add_to_log("error", traceback.format_exc())

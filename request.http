@@ -7,7 +7,7 @@ content-type: application/json
 }
 
 ### get pacientes
-GET http://127.0.0.1:5000/pacientes
+GET http://127.0.0.1:5000/pacientes/
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA1MzE5MTQsImV4cCI6MTcwMTEzNjcxNCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.qQ036SH8-73JFNcTJRf953b3y_xYX9wUMxNk1PxPVSE
 
@@ -15,7 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA1MzE5M
 ### get pacientes
 POST http://127.0.0.1:5000/pacientes/guardar
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA1MzE5MTQsImV4cCI6MTcwMTEzNjcxNCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.qQ036SH8-73JFNcTJRf953b3y_xYX9wUMxNk1PxPVSE
 
 {
     "nombre": "Juan Pérez",
@@ -71,6 +71,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyN
 }
 
 ### borrar pacientes
-DELETE  http://127.0.0.1:5000/pacientes/borrar/16792
+DELETE  http://127.0.0.1:5000/pacientes/borrar/16781
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDAxMDMyNTQsImV4cCI6MTcwMDEwNjg1NCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.NBT7oataCzaN-Ye_VzpzCWpuGCRcguJCO3qHW81__1E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA1MzE5MTQsImV4cCI6MTcwMTEzNjcxNCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.qQ036SH8-73JFNcTJRf953b3y_xYX9wUMxNk1PxPVSE
