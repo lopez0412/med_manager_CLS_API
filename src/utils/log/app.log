@@ -1,15 +1,27 @@
-2023-11-20 19:49:20 | INFO | GET /
-2023-11-21 18:38:44 | ERROR | 'username'
-2023-11-21 18:38:44 | ERROR | Traceback (most recent call last):
-  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\AuthRoutes.py", line 17, in login
-    username = request.json['username']
-               ~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'username'
+2023-11-23 21:23:12 | ERROR | 'edad'
+2023-11-23 21:23:12 | ERROR | Traceback (most recent call last):
+  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\PacientesRoutes.py", line 44, in route_guardar_paciente
+    edad=request.json['edad'],
+         ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'edad'
 
-2023-11-21 18:39:02 | ERROR | 'username'
-2023-11-21 18:39:02 | ERROR | Traceback (most recent call last):
-  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\AuthRoutes.py", line 17, in login
-    username = request.json['username']
-               ~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'username'
+2023-11-23 22:06:55 | ERROR | 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2023-11-23 22:06:55 | ERROR | Traceback (most recent call last):
+  File "C:\Users\lopez\OneDrive\Documentos\Python-Workspace\med_manager_CSL_api\src\routes\PacientesRoutes.py", line 107, in route_editar_paciente
+    pacienteId=request.json['pacienteId'],
+               ^^^^^^^^^^^^
+  File "C:\Users\lopez\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\wrappers\request.py", line 565, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\lopez\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\wrappers\request.py", line 611, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lopez\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\wrappers.py", line 130, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lopez\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\wrappers\request.py", line 654, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
 
+2023-11-23 22:12:01 | ERROR | (1054, "Unknown column 'idPaciente' in 'where clause'")
+2023-11-23 22:12:47 | ERROR | (1054, "Unknown column 'idPaciente' in 'where clause'")

@@ -91,6 +91,16 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_borrarPaciente`(
+    IN p_idPaciente INT
+)
+BEGIN
+    DELETE FROM pacientes
+    WHERE pacienteId = p_idPaciente;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_buscarPaciente`(IN `p_busqueda` VARCHAR(30))
 BEGIN
     SET @sql = CONCAT("SELECT * FROM pacientes WHERE nombre LIKE '%", p_busqueda, "%' OR telefono LIKE '%", p_busqueda, "%' OR numeroDui LIKE '%", p_busqueda, "%' OR direccion LIKE '%", p_busqueda, "%'");
@@ -143,16 +153,6 @@ BEGIN
         telContacto = p_telContacto,
         idUsuarioModifica = p_idUsuarioModifica,
         fechaModificacion = NOW()
-    WHERE idPaciente = p_idPaciente;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_borrarPaciente`(
-    IN p_idPaciente INT
-)
-BEGIN
-    DELETE FROM pacientes
     WHERE pacienteId = p_idPaciente;
 END$$
 DELIMITER ;

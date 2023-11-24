@@ -17,25 +17,7 @@ POST http://127.0.0.1:5000/pacientes/guardar
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA1MzE5MTQsImV4cCI6MTcwMTEzNjcxNCwidXNlcm5hbWUiOiJhbGVqYW5kcm9BZG1pbiIsImZ1bGxuYW1lIjoiSmF2aWVyIEFsZWphbmRybyBMb3BleiBSYW1pcmV6Iiwicm9sZXMiOlsiQWRtaW5pc3RyYXRvciIsIkVkaXRvciJdfQ.qQ036SH8-73JFNcTJRf953b3y_xYX9wUMxNk1PxPVSE
 
-{
-    "nombre": "Juan Pérez",
-    "numero_registro": "12345",
-    "gen_id": 1,
-    "edad": 30,
-    "direccion": "Calle Principal",
-    "dep_id": 1,
-    "mun_id": 1,
-    "estado_civil": 1,
-    "telefono": "123456789",
-    "fecha_nacimiento": "1990-01-01",
-    "numero_dui": "",
-    "nombre_madre": "",
-    "nombre_padre": "",
-    "responsable": "",
-    "tel_contacto": "",
-    "id_usuario_crea": 1
-}
-
+{"nombre":"Javier Lopez","numeroRegistro":"12345669","genId":"1","edad":"30","direccion":"Final Av simon bolivar","depId":"1","munId":"1","estadoCivil":"1","telefono":"70954803","fechaNacimiento":"1992-12-04","numeroDui":"0484748494","id_usuario":2}
 ### get pacientes
 POST http://127.0.0.1:5000/pacientes/buscar
 content-type: application/json
