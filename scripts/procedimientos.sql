@@ -103,31 +103,10 @@ DELIMITER ;
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_buscarPaciente`(IN `p_busqueda` VARCHAR(30))
 BEGIN
-    SET @sql = CONCAT("SELECT * FROM pacientes WHERE nombre LIKE '%", p_busqueda, "%' OR telefono LIKE '%", p_busqueda, "%' OR numeroDui LIKE '%", p_busqueda, "%' OR direccion LIKE '%", p_busqueda, "%'");
+    SET @sql = CONCAT("SELECT * FROM pacientes WHERE nombre LIKE '%", p_busqueda, "%' OR telefono LIKE '%", p_busqueda, "%' OR numeroDui LIKE '%", p_busqueda, "%' OR direccion LIKE '%", p_busqueda, "%' LIMIT 50");
     PREPARE stmt FROM @sql;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_listPacientes`()
-BEGIN
-	SELECT *
-    FROM pacientes 
-    ORDER BY pacienteId DESC
-    LIMIT 200;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_verifyIdentity`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20))
-BEGIN
-	SELECT USER.id, USER.username, USER.fullname, USER.email 
-	FROM user USER 
-    WHERE 1 = 1 
-    AND USER.username = pUsername 
-	AND CAST(AES_DECRYPT(USER.password, SHA2('BWvc351?C2KHNL3125D', 512)) AS CHAR(30)) = pPassword;
 END$$
 DELIMITER ;
 
@@ -154,5 +133,26 @@ BEGIN
         idUsuarioModifica = p_idUsuarioModifica,
         fechaModificacion = NOW()
     WHERE pacienteId = p_idPaciente;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_listPacientes`()
+BEGIN
+	SELECT *
+    FROM pacientes 
+    ORDER BY pacienteId DESC
+    LIMIT 50;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_verifyIdentity`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20))
+BEGIN
+	SELECT USER.id, USER.username, USER.fullname, USER.email 
+	FROM user USER 
+    WHERE 1 = 1 
+    AND USER.username = pUsername 
+	AND CAST(AES_DECRYPT(USER.password, SHA2('BWvc351?C2KHNL3125D', 512)) AS CHAR(30)) = pPassword;
 END$$
 DELIMITER ;
