@@ -23,7 +23,7 @@ class Security():
                 'id': authenticated_user.id,
                 'username': authenticated_user.username,
                 'fullname': authenticated_user.fullname,
-                'roles': ['Administrator', 'Editor']
+                'roles': [authenticated_user.role]
             }
             return jwt.encode(payload, cls.secret, algorithm="HS256")
         except Exception as ex:
@@ -42,7 +42,7 @@ class Security():
                         payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
                         roles = list(payload['roles'])
 
-                        if 'Administrator' in roles:
+                        if 'Administrador' in roles:
                             return True
                         return False
                     except (jwt.ExpiredSignatureError, jwt.InvalidSignatureError):

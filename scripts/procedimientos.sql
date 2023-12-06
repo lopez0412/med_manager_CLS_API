@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addPaciente`(IN `p_nombre` VARCHAR(70), IN `p_numeroRegistro` VARCHAR(20), IN `p_genId` INT, IN `p_edad` VARCHAR(10), IN `p_direccion` VARCHAR(200), IN `p_depId` INT, IN `p_munId` INT, IN `p_estadoCivil` INT, IN `p_telefono` VARCHAR(12), IN `p_fechaNacimiento` VARCHAR(20), IN `p_numeroDui` VARCHAR(12), IN `p_nombreMadre` VARCHAR(100), IN `p_nombrePadre` VARCHAR(100), IN `p_responsable` VARCHAR(100), IN `p_telContacto` VARCHAR(12), IN `p_idUsuarioCrea` INT)
+CREATE  PROCEDURE `sp_addPaciente`(IN `p_nombre` VARCHAR(70), IN `p_numeroRegistro` VARCHAR(20), IN `p_genId` INT, IN `p_edad` VARCHAR(10), IN `p_direccion` VARCHAR(200), IN `p_depId` INT, IN `p_munId` INT, IN `p_estadoCivil` INT, IN `p_telefono` VARCHAR(12), IN `p_fechaNacimiento` VARCHAR(20), IN `p_numeroDui` VARCHAR(12), IN `p_nombreMadre` VARCHAR(100), IN `p_nombrePadre` VARCHAR(100), IN `p_responsable` VARCHAR(100), IN `p_telContacto` VARCHAR(12), IN `p_idUsuarioCrea` INT)
 BEGIN
     -- Verificar y asignar valores nulos si es necesario
     DECLARE numero_dui VARCHAR(12);
@@ -83,7 +83,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addUser`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20), IN pFullname VARCHAR(50), IN p_email VARCHAR(20))
+CREATE  PROCEDURE `sp_addUser`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20), IN pFullname VARCHAR(50), IN p_email VARCHAR(20))
 BEGIN
     INSERT INTO user (username, password, fullname, email)
     VALUES (pUsername, AES_ENCRYPT(pPassword, SHA2('BWvc351?C2KHNL3125D', 512)), pFullname, pEmail);
@@ -91,7 +91,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_borrarPaciente`(
+CREATE  PROCEDURE `sp_borrarPaciente`(
     IN p_idPaciente INT
 )
 BEGIN
@@ -101,7 +101,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_buscarPaciente`(IN `p_busqueda` VARCHAR(30))
+CREATE  PROCEDURE `sp_buscarPaciente`(IN `p_busqueda` VARCHAR(30))
 BEGIN
     SET @sql = CONCAT("SELECT * FROM pacientes WHERE nombre LIKE '%", p_busqueda, "%' OR telefono LIKE '%", p_busqueda, "%' OR numeroDui LIKE '%", p_busqueda, "%' OR direccion LIKE '%", p_busqueda, "%' LIMIT 50");
     PREPARE stmt FROM @sql;
@@ -111,7 +111,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_editarPaciente`(IN `p_idPaciente` INT, IN `p_nombre` VARCHAR(70), IN `p_numeroRegistro` VARCHAR(20), IN `p_genId` INT, IN `p_edad` VARCHAR(10), IN `p_direccion` VARCHAR(200), IN `p_depId` INT, IN `p_munId` INT, IN `p_estadoCivil` INT, IN `p_telefono` VARCHAR(12), IN `p_fechaNacimiento` VARCHAR(20), IN `p_numeroDui` VARCHAR(12), IN `p_nombreMadre` VARCHAR(100), IN `p_nombrePadre` VARCHAR(100), IN `p_responsable` VARCHAR(100), IN `p_telContacto` VARCHAR(12), IN `p_idUsuarioModifica` INT)
+CREATE  PROCEDURE `sp_editarPaciente`(IN `p_idPaciente` INT, IN `p_nombre` VARCHAR(70), IN `p_numeroRegistro` VARCHAR(20), IN `p_genId` INT, IN `p_edad` VARCHAR(10), IN `p_direccion` VARCHAR(200), IN `p_depId` INT, IN `p_munId` INT, IN `p_estadoCivil` INT, IN `p_telefono` VARCHAR(12), IN `p_fechaNacimiento` VARCHAR(20), IN `p_numeroDui` VARCHAR(12), IN `p_nombreMadre` VARCHAR(100), IN `p_nombrePadre` VARCHAR(100), IN `p_responsable` VARCHAR(100), IN `p_telContacto` VARCHAR(12), IN `p_idUsuarioModifica` INT)
 BEGIN
     UPDATE pacientes
     SET
@@ -137,7 +137,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_listPacientes`()
+CREATE  PROCEDURE `sp_listPacientes`()
 BEGIN
 	SELECT *
     FROM pacientes 
@@ -147,7 +147,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_verifyIdentity`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20))
+CREATE  PROCEDURE `sp_verifyIdentity`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20))
 BEGIN
 	SELECT USER.id, USER.username, USER.fullname, USER.email 
 	FROM user USER 
