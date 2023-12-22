@@ -83,10 +83,10 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `sp_addUser`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20), IN pFullname VARCHAR(50), IN p_email VARCHAR(20))
+CREATE PROCEDURE `sp_addUser`(IN `pUsername` VARCHAR(20), IN `pPassword` VARCHAR(20), IN `pFullname` VARCHAR(50), IN `p_email` VARCHAR(20), IN `p_role` VARCHAR(20))
 BEGIN
-    INSERT INTO user (username, password, fullname, email)
-    VALUES (pUsername, AES_ENCRYPT(pPassword, SHA2('BWvc351?C2KHNL3125D', 512)), pFullname, pEmail);
+    INSERT INTO user (username, password, fullname, email, role)
+    VALUES (pUsername, AES_ENCRYPT(pPassword, SHA2('BWvc351?C2KHNL3125D', 512)), pFullname, p_Email, p_role);
 END$$
 DELIMITER ;
 
@@ -149,7 +149,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE  PROCEDURE `sp_verifyIdentity`(IN pUsername VARCHAR(20), IN pPassword VARCHAR(20))
 BEGIN
-	SELECT USER.id, USER.username, USER.fullname, USER.email 
+	SELECT USER.id, USER.username, USER.fullname, USER.email, USER.role 
 	FROM user USER 
     WHERE 1 = 1 
     AND USER.username = pUsername 
