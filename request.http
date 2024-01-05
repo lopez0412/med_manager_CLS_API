@@ -1,4 +1,4 @@
-POST http://127.0.0.1:5000/auth
+POST http://127.0.0.1:7000/auth
 content-type: application/json
 
 {
@@ -7,9 +7,9 @@ content-type: application/json
 }
 
 ### get pacientes
-GET http://127.0.0.1:5000/pacientes/
+GET http://127.0.0.1:7000/pacientes/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDIzNTE2MzEsImV4cCI6MTcwMjk1NjQzMSwiaWQiOjIsInVzZXJuYW1lIjoiYWxlamFuZHJvQWRtaW4iLCJmdWxsbmFtZSI6IkphdmllciBBbGVqYW5kcm8gTG9wZXogUmFtaXJleiIsInJvbGVzIjpbIkFkbWluaXN0cmFkb3IiXX0.vxGdIRP_6EgBDPp-hepzZuS07wJy-O8WMMhiwus2QC8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDQ0MTQ2MjMsImV4cCI6MTcwNTAxOTQyMywiaWQiOjIsInVzZXJuYW1lIjoiYWxlamFuZHJvQWRtaW4iLCJmdWxsbmFtZSI6IkphdmllciBBbGVqYW5kcm8gTG9wZXogUmFtaXJleiIsInJvbGVzIjpbIkFkbWluaXN0cmFkb3IiXX0.eP9DnfoyU8lZw3v9ngtxxK6FOyrEkZazS-SKaarWr4Y
 
 ### get pacientes
 POST http://127.0.0.1:5000/pacientes/guardar
